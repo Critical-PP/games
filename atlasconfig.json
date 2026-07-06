@@ -1,0 +1,72 @@
+[
+    {
+        "DisplayName": "Admin / RCON Password",
+        "Description": "Sets ServerAdminPassword. This is ALSO the password AMP uses to connect to RCON, so it must be filled in or the console won't work. Use something strong.",
+        "FieldName": "AdminPassword",
+        "InputType": "password",
+        "Category": "ATLAS",
+        "Subcategory": "General:sports_esports:1",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": ""
+    },
+    {
+        "DisplayName": "Seamless IP",
+        "Description": "The PUBLIC IPv4 address of this machine (SeamlessIP). ATLAS needs this even for a single grid. Find yours at whatismyip.com. Use 127.0.0.1 only for a LAN-only test.",
+        "FieldName": "SeamlessIP",
+        "InputType": "text",
+        "Category": "ATLAS",
+        "Subcategory": "General:sports_esports:1",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "127.0.0.1"
+    },
+    {
+        "DisplayName": "Grid X (ServerX)",
+        "Description": "X coordinate of this grid square within the map. For a single-grid server leave this at 0. It must match the cell you built in ServerGrid.json.",
+        "FieldName": "ServerX",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Grid & World:public:2",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "0",
+        "MinValue": 0,
+        "MaxValue": 14
+    },
+    {
+        "DisplayName": "Grid Y (ServerY)",
+        "Description": "Y coordinate of this grid square. For a single-grid server leave this at 0.",
+        "FieldName": "ServerY",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Grid & World:public:2",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "0",
+        "MinValue": 0,
+        "MaxValue": 14
+    },
+    {
+        "DisplayName": "Save Directory Name",
+        "Description": "Folder used to store this grid's saved world (AltSaveDirectoryName). Keep it unique per grid, e.g. 00 for grid 0,0.",
+        "FieldName": "SaveDir",
+        "InputType": "text",
+        "Category": "ATLAS",
+        "Subcategory": "Grid & World:public:2",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "00"
+    },
+    {
+        "DisplayName": "Extra Launch Arguments",
+        "Description": "Optional. Extra command-line flags appended to the end, e.g. -culture=en or -NoCrashDialog. Leave blank if unsure.",
+        "FieldName": "CustomArgs",
+        "InputType": "text",
+        "Category": "ATLAS",
+        "Subcategory": "Advanced:tune:3",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": ""
+    }
+]
