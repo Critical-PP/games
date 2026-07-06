@@ -1,4 +1,4 @@
-Meta.DisplayName=ATLAS (Single Grid)
+Meta.DisplayName=ATLAS
 Meta.Description=Single-grid ATLAS dedicated server for Windows. REQUIRES a running Redis database and ServerGrid.json map files placed manually. See the setup notes that came with this template.
 Meta.OS=Windows
 Meta.AarchSupport=None
