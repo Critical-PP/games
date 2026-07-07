@@ -1,5 +1,28 @@
 [
     {
+        "DisplayName": "Server Role",
+        "Description": "Master = this instance launches the bundled Redis on this machine and connects to it locally (choose this for your first/only grid). Slave = this instance does NOT launch Redis; it connects to the master's Redis. Deploy one Master, then any number of Slaves.",
+        "FieldName": "ServerRole",
+        "InputType": "enum",
+        "EnumValues": {"Master": "Master (runs Redis + a grid)", "Slave": "Slave (grid only, uses master's Redis)"},
+        "Category": "ATLAS",
+        "Subcategory": "Cluster Role:hub:0",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "Master"
+    },
+    {
+        "DisplayName": "Master Server IP",
+        "Description": "Only used when Server Role is Slave. The LAN/public IP of the machine running the Master (and its Redis). You must also point THIS grid's ServerGrid.ServerOnly.json Redis URL at this same IP. Leave as 127.0.0.1 on the Master.",
+        "FieldName": "MasterServerIP",
+        "InputType": "text",
+        "Category": "ATLAS",
+        "Subcategory": "Cluster Role:hub:0",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "127.0.0.1"
+    },
+    {
         "DisplayName": "Admin / RCON Password",
         "Description": "Sets ServerAdminPassword. This is ALSO the password AMP uses to connect to RCON, so it must be filled in or the console won't work. Use something strong.",
         "FieldName": "AdminPassword",
