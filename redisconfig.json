@@ -1,0 +1,13 @@
+[
+    {
+        "DisplayName": "Redis Info",
+        "Description": "This instance runs the ATLAS Redis database. It needs no settings — just copy the files from your ATLAS instance's AtlasTools\\RedisDatabase folder into this instance's Redis folder, then Start it. Your ATLAS grids connect to it on 127.0.0.1:6379.",
+        "FieldName": "RedisInfo",
+        "InputType": "label",
+        "Category": "Redis",
+        "Subcategory": "About:info:1",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": ""
+    }
+]
