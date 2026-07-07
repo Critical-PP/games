@@ -1,0 +1,60 @@
+[
+    {
+        "ConfigFile": "1006030/ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini",
+        "Subsections": [
+            {
+                "Heading": "SessionSettings",
+                "SettingMappings": {
+                    "SessionName": "SessionName"
+                }
+            },
+            {
+                "Heading": "ServerSettings",
+                "SettingMappings": {
+                    "HarvestAmountMultiplier": "HarvestAmountMultiplier",
+                    "HarvestHealthMultiplier": "HarvestHealthMultiplier",
+                    "TamingSpeedMultiplier": "TamingSpeedMultiplier",
+                    "XPMultiplier": "XPMultiplier",
+                    "ResourcesRespawnPeriodMultiplier": "ResourcesRespawnPeriodMultiplier",
+                    "DifficultyOffset": "DifficultyOffset",
+                    "OverrideOfficialDifficulty": "OverrideOfficialDifficulty",
+                    "PlayerCharacterFoodDrainMultiplier": "PlayerCharacterFoodDrainMultiplier",
+                    "PlayerCharacterWaterDrainMultiplier": "PlayerCharacterWaterDrainMultiplier",
+                    "PlayerCharacterStaminaDrainMultiplier": "PlayerCharacterStaminaDrainMultiplier",
+                    "PlayerDamageMultiplier": "PlayerDamageMultiplier",
+                    "PlayerResistanceMultiplier": "PlayerResistanceMultiplier",
+                    "DinoCharacterFoodDrainMultiplier": "DinoCharacterFoodDrainMultiplier",
+                    "DinoCharacterHealthRecoveryMultiplier": "DinoCharacterHealthRecoveryMultiplier",
+                    "DinoDamageMultiplier": "DinoDamageMultiplier",
+                    "DinoResistanceMultiplier": "DinoResistanceMultiplier",
+                    "StructureDamageMultiplier": "StructureDamageMultiplier",
+                    "StructureResistanceMultiplier": "StructureResistanceMultiplier",
+                    "DayTimeSpeedScale": "DayTimeSpeedScale",
+                    "NightTimeSpeedScale": "NightTimeSpeedScale",
+                    "ServerPVE": "ServerPVE",
+                    "AllowThirdPersonPlayer": "AllowThirdPersonPlayer",
+                    "ShowMapPlayerLocation": "ShowMapPlayerLocation",
+                    "GlobalVoiceChat": "GlobalVoiceChat",
+                    "ProximityChat": "ProximityChat",
+                    "EnablePVPGamma": "EnablePVPGamma"
+                }
+            }
+        ]
+    },
+    {
+        "ConfigFile": "1006030/ShooterGame/Saved/Config/WindowsServer/Game.ini",
+        "Subsections": [
+            {
+                "Heading": "/script/shootergame.shootergamemode",
+                "SettingMappings": {
+                    "MatingIntervalMultiplier": "MatingIntervalMultiplier",
+                    "EggHatchSpeedMultiplier": "EggHatchSpeedMultiplier",
+                    "BabyMatureSpeedMultiplier": "BabyMatureSpeedMultiplier",
+                    "BabyFoodConsumptionSpeedMultiplier": "BabyFoodConsumptionSpeedMultiplier",
+                    "BabyImprintingStatScaleMultiplier": "BabyImprintingStatScaleMultiplier",
+                    "CropGrowthSpeedMultiplier": "CropGrowthSpeedMultiplier"
+                }
+            }
+        ]
+    }
+]
