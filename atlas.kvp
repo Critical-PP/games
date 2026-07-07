@@ -1,5 +1,5 @@
 Meta.DisplayName=ATLAS
-Meta.Description=Single-grid ATLAS dedicated server for Windows. REQUIRES a running Redis database and ServerGrid.json map files placed manually. See the setup notes that came with this template.
+Meta.Description=ATLAS dedicated server for Windows. Deploy once per grid. Set the Server Role to Master (launches the bundled Redis on this box) or Slave (connects to the master's Redis). Requires ServerGrid map files placed in ShooterGame. See the setup notes.
 Meta.OS=Windows
 Meta.AarchSupport=None
 Meta.Arch=x86_64
@@ -74,7 +74,7 @@ App.RCONSelectIPMethod=Default
 App.TelnetLoginFormat={0}
 App.TelnetNewLineType=Default
 App.UpdateSources=[{"UpdateStageName":"SteamCMD Download","UpdateSourcePlatform":"Windows","UpdateSource":"SteamCMD","UpdateSourceData":"1006030","SkipOnFailure":false}]
-App.PreStartStages=[]
+App.PreStartStages=[{"UpdateStageName":"Start bundled Redis (Master role only)","UpdateSourcePlatform":"Windows","UpdateSource":"Executable","UpdateSourceData":"{{$FullRootDir}}1006030\\AtlasTools\\RedisDatabase\\redis-server.exe","UpdateSourceArgs":"{{$FullRootDir}}1006030\\AtlasTools\\RedisDatabase\\redis.conf","RunInBackground":true,"UpdateSourceConditionSetting":"ServerRole","UpdateSourceConditionValue":"Master","SkipOnFailure":true}]
 App.UserActions=[]
 App.ForceUpdate=False
 App.ForceUpdateReason=
