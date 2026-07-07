@@ -1,95 +1,60 @@
 [
     {
-        "DisplayName": "Server Role",
-        "Description": "Master = this instance launches the bundled Redis on this machine and connects to it locally (choose this for your first/only grid). Slave = this instance does NOT launch Redis; it connects to the master's Redis. Deploy one Master, then any number of Slaves.",
-        "FieldName": "ServerRole",
-        "InputType": "enum",
-        "EnumValues": {"Master": "Master (runs Redis + a grid)", "Slave": "Slave (grid only, uses master's Redis)"},
-        "Category": "ATLAS",
-        "Subcategory": "Cluster Role:hub:0",
-        "IncludeInCommandLine": false,
-        "Required": true,
-        "DefaultValue": "Master"
+        "ConfigFile": "1006030/ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini",
+        "Subsections": [
+            {
+                "Heading": "SessionSettings",
+                "SettingMappings": {
+                    "SessionName": "SessionName"
+                }
+            },
+            {
+                "Heading": "ServerSettings",
+                "SettingMappings": {
+                    "HarvestAmountMultiplier": "HarvestAmountMultiplier",
+                    "HarvestHealthMultiplier": "HarvestHealthMultiplier",
+                    "TamingSpeedMultiplier": "TamingSpeedMultiplier",
+                    "XPMultiplier": "XPMultiplier",
+                    "ResourcesRespawnPeriodMultiplier": "ResourcesRespawnPeriodMultiplier",
+                    "DifficultyOffset": "DifficultyOffset",
+                    "OverrideOfficialDifficulty": "OverrideOfficialDifficulty",
+                    "PlayerCharacterFoodDrainMultiplier": "PlayerCharacterFoodDrainMultiplier",
+                    "PlayerCharacterWaterDrainMultiplier": "PlayerCharacterWaterDrainMultiplier",
+                    "PlayerCharacterStaminaDrainMultiplier": "PlayerCharacterStaminaDrainMultiplier",
+                    "PlayerDamageMultiplier": "PlayerDamageMultiplier",
+                    "PlayerResistanceMultiplier": "PlayerResistanceMultiplier",
+                    "DinoCharacterFoodDrainMultiplier": "DinoCharacterFoodDrainMultiplier",
+                    "DinoCharacterHealthRecoveryMultiplier": "DinoCharacterHealthRecoveryMultiplier",
+                    "DinoDamageMultiplier": "DinoDamageMultiplier",
+                    "DinoResistanceMultiplier": "DinoResistanceMultiplier",
+                    "StructureDamageMultiplier": "StructureDamageMultiplier",
+                    "StructureResistanceMultiplier": "StructureResistanceMultiplier",
+                    "DayTimeSpeedScale": "DayTimeSpeedScale",
+                    "NightTimeSpeedScale": "NightTimeSpeedScale",
+                    "ServerPVE": "ServerPVE",
+                    "AllowThirdPersonPlayer": "AllowThirdPersonPlayer",
+                    "ShowMapPlayerLocation": "ShowMapPlayerLocation",
+                    "GlobalVoiceChat": "GlobalVoiceChat",
+                    "ProximityChat": "ProximityChat",
+                    "EnablePVPGamma": "EnablePVPGamma"
+                }
+            }
+        ]
     },
     {
-        "DisplayName": "Master Server IP",
-        "Description": "Only used when Server Role is Slave. The LAN/public IP of the machine running the Master (and its Redis). You must also point THIS grid's ServerGrid.ServerOnly.json Redis URL at this same IP. Leave as 127.0.0.1 on the Master.",
-        "FieldName": "MasterServerIP",
-        "InputType": "text",
-        "Category": "ATLAS",
-        "Subcategory": "Cluster Role:hub:0",
-        "IncludeInCommandLine": false,
-        "Required": false,
-        "DefaultValue": "127.0.0.1"
-    },
-    {
-        "DisplayName": "Admin / RCON Password",
-        "Description": "Sets ServerAdminPassword. This is ALSO the password AMP uses to connect to RCON, so it must be filled in or the console won't work. Use something strong.",
-        "FieldName": "AdminPassword",
-        "InputType": "password",
-        "Category": "ATLAS",
-        "Subcategory": "General:sports_esports:1",
-        "IncludeInCommandLine": false,
-        "Required": true,
-        "DefaultValue": ""
-    },
-    {
-        "DisplayName": "Seamless IP",
-        "Description": "The PUBLIC IPv4 address of this machine (SeamlessIP). ATLAS needs this even for a single grid. Find yours at whatismyip.com. Use 127.0.0.1 only for a LAN-only test.",
-        "FieldName": "SeamlessIP",
-        "InputType": "text",
-        "Category": "ATLAS",
-        "Subcategory": "General:sports_esports:1",
-        "IncludeInCommandLine": false,
-        "Required": true,
-        "DefaultValue": "127.0.0.1"
-    },
-    {
-        "DisplayName": "Grid X (ServerX)",
-        "Description": "X coordinate of this grid square within the map. For a single-grid server leave this at 0. It must match the cell you built in ServerGrid.json.",
-        "FieldName": "ServerX",
-        "InputType": "number",
-        "Category": "ATLAS",
-        "Subcategory": "Grid & World:public:2",
-        "IncludeInCommandLine": false,
-        "Required": true,
-        "DefaultValue": "0",
-        "MinValue": 0,
-        "MaxValue": 14
-    },
-    {
-        "DisplayName": "Grid Y (ServerY)",
-        "Description": "Y coordinate of this grid square. For a single-grid server leave this at 0.",
-        "FieldName": "ServerY",
-        "InputType": "number",
-        "Category": "ATLAS",
-        "Subcategory": "Grid & World:public:2",
-        "IncludeInCommandLine": false,
-        "Required": true,
-        "DefaultValue": "0",
-        "MinValue": 0,
-        "MaxValue": 14
-    },
-    {
-        "DisplayName": "Save Directory Name",
-        "Description": "Folder used to store this grid's saved world (AltSaveDirectoryName). Keep it unique per grid, e.g. 00 for grid 0,0.",
-        "FieldName": "SaveDir",
-        "InputType": "text",
-        "Category": "ATLAS",
-        "Subcategory": "Grid & World:public:2",
-        "IncludeInCommandLine": false,
-        "Required": true,
-        "DefaultValue": "00"
-    },
-    {
-        "DisplayName": "Extra Launch Arguments",
-        "Description": "Optional. Extra command-line flags appended to the end, e.g. -culture=en or -NoCrashDialog. Leave blank if unsure.",
-        "FieldName": "CustomArgs",
-        "InputType": "text",
-        "Category": "ATLAS",
-        "Subcategory": "Advanced:tune:3",
-        "IncludeInCommandLine": false,
-        "Required": false,
-        "DefaultValue": ""
+        "ConfigFile": "1006030/ShooterGame/Saved/Config/WindowsServer/Game.ini",
+        "Subsections": [
+            {
+                "Heading": "/script/shootergame.shootergamemode",
+                "SettingMappings": {
+                    "MatingIntervalMultiplier": "MatingIntervalMultiplier",
+                    "EggHatchSpeedMultiplier": "EggHatchSpeedMultiplier",
+                    "BabyMatureSpeedMultiplier": "BabyMatureSpeedMultiplier",
+                    "BabyFoodConsumptionSpeedMultiplier": "BabyFoodConsumptionSpeedMultiplier",
+                    "BabyImprintingStatScaleMultiplier": "BabyImprintingStatScaleMultiplier",
+                    "CropGrowthSpeedMultiplier": "CropGrowthSpeedMultiplier"
+                }
+            }
+        ]
     }
 ]
