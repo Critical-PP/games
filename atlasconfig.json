@@ -1,60 +1,455 @@
 [
     {
-        "ConfigFile": "1006030/ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini",
-        "Subsections": [
-            {
-                "Heading": "SessionSettings",
-                "SettingMappings": {
-                    "SessionName": "SessionName"
-                }
-            },
-            {
-                "Heading": "ServerSettings",
-                "SettingMappings": {
-                    "HarvestAmountMultiplier": "HarvestAmountMultiplier",
-                    "HarvestHealthMultiplier": "HarvestHealthMultiplier",
-                    "TamingSpeedMultiplier": "TamingSpeedMultiplier",
-                    "XPMultiplier": "XPMultiplier",
-                    "ResourcesRespawnPeriodMultiplier": "ResourcesRespawnPeriodMultiplier",
-                    "DifficultyOffset": "DifficultyOffset",
-                    "OverrideOfficialDifficulty": "OverrideOfficialDifficulty",
-                    "PlayerCharacterFoodDrainMultiplier": "PlayerCharacterFoodDrainMultiplier",
-                    "PlayerCharacterWaterDrainMultiplier": "PlayerCharacterWaterDrainMultiplier",
-                    "PlayerCharacterStaminaDrainMultiplier": "PlayerCharacterStaminaDrainMultiplier",
-                    "PlayerDamageMultiplier": "PlayerDamageMultiplier",
-                    "PlayerResistanceMultiplier": "PlayerResistanceMultiplier",
-                    "DinoCharacterFoodDrainMultiplier": "DinoCharacterFoodDrainMultiplier",
-                    "DinoCharacterHealthRecoveryMultiplier": "DinoCharacterHealthRecoveryMultiplier",
-                    "DinoDamageMultiplier": "DinoDamageMultiplier",
-                    "DinoResistanceMultiplier": "DinoResistanceMultiplier",
-                    "StructureDamageMultiplier": "StructureDamageMultiplier",
-                    "StructureResistanceMultiplier": "StructureResistanceMultiplier",
-                    "DayTimeSpeedScale": "DayTimeSpeedScale",
-                    "NightTimeSpeedScale": "NightTimeSpeedScale",
-                    "ServerPVE": "ServerPVE",
-                    "AllowThirdPersonPlayer": "AllowThirdPersonPlayer",
-                    "ShowMapPlayerLocation": "ShowMapPlayerLocation",
-                    "GlobalVoiceChat": "GlobalVoiceChat",
-                    "ProximityChat": "ProximityChat",
-                    "EnablePVPGamma": "EnablePVPGamma"
-                }
-            }
-        ]
+        "DisplayName": "Admin / RCON Password",
+        "Description": "Sets ServerAdminPassword. Also the password AMP uses for RCON, so it must be filled in or the console won't work.",
+        "FieldName": "AdminPassword",
+        "InputType": "password",
+        "Category": "ATLAS",
+        "Subcategory": "General:sports_esports:1",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": ""
     },
     {
-        "ConfigFile": "1006030/ShooterGame/Saved/Config/WindowsServer/Game.ini",
-        "Subsections": [
-            {
-                "Heading": "/script/shootergame.shootergamemode",
-                "SettingMappings": {
-                    "MatingIntervalMultiplier": "MatingIntervalMultiplier",
-                    "EggHatchSpeedMultiplier": "EggHatchSpeedMultiplier",
-                    "BabyMatureSpeedMultiplier": "BabyMatureSpeedMultiplier",
-                    "BabyFoodConsumptionSpeedMultiplier": "BabyFoodConsumptionSpeedMultiplier",
-                    "BabyImprintingStatScaleMultiplier": "BabyImprintingStatScaleMultiplier",
-                    "CropGrowthSpeedMultiplier": "CropGrowthSpeedMultiplier"
-                }
-            }
-        ]
+        "DisplayName": "Seamless IP",
+        "Description": "The PUBLIC IPv4 of this machine (SeamlessIP). Find it at whatismyip.com. Use 127.0.0.1 only for LAN-only tests.",
+        "FieldName": "SeamlessIP",
+        "InputType": "text",
+        "Category": "ATLAS",
+        "Subcategory": "General:sports_esports:1",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "127.0.0.1"
+    },
+    {
+        "DisplayName": "Grid X (ServerX)",
+        "Description": "X coordinate of this grid within the map. Single grid = 0. Must match the cell in ServerGrid.json.",
+        "FieldName": "ServerX",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Grid & World:public:2",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "0"
+    },
+    {
+        "DisplayName": "Grid Y (ServerY)",
+        "Description": "Y coordinate of this grid. Single grid = 0.",
+        "FieldName": "ServerY",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Grid & World:public:2",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "0"
+    },
+    {
+        "DisplayName": "Save Directory Name",
+        "Description": "AltSaveDirectoryName \u2014 folder for this grid's save data. Keep unique per grid, e.g. 00.",
+        "FieldName": "SaveDir",
+        "InputType": "text",
+        "Category": "ATLAS",
+        "Subcategory": "Grid & World:public:2",
+        "IncludeInCommandLine": false,
+        "Required": true,
+        "DefaultValue": "00"
+    },
+    {
+        "DisplayName": "Extra Launch Arguments",
+        "Description": "Optional extra command-line flags appended at the end, e.g. -culture=en. Leave blank if unsure.",
+        "FieldName": "CustomArgs",
+        "InputType": "text",
+        "Category": "ATLAS",
+        "Subcategory": "Advanced:tune:9",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": ""
+    },
+    {
+        "DisplayName": "Server Name (fallback)",
+        "Description": "Server name in the browser. NOTE: ATLAS usually shows the grid's Friendly Name from the map file instead, so this is only a fallback.",
+        "FieldName": "SessionName",
+        "InputType": "text",
+        "Category": "ATLAS",
+        "Subcategory": "Server:dns:3",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "My ATLAS Server"
+    },
+    {
+        "DisplayName": "Harvest Amount",
+        "Description": "Resources gathered per swing. 1.0 = official, 3.0 = triple.",
+        "FieldName": "HarvestAmountMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Rates:agriculture:4",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Harvest Health",
+        "Description": "How many hits a node takes before depleting. Lower = fewer hits.",
+        "FieldName": "HarvestHealthMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Rates:agriculture:4",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Taming Speed",
+        "Description": "Taming speed. 1.0 = official, 5.0 = five times faster.",
+        "FieldName": "TamingSpeedMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Rates:agriculture:4",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "XP Multiplier",
+        "Description": "Experience gain rate. 1.0 = official.",
+        "FieldName": "XPMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Rates:agriculture:4",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Resource Respawn Period",
+        "Description": "Time for resources to regrow. This runs BACKWARDS: lower = faster respawn (0.5 = twice as fast).",
+        "FieldName": "ResourcesRespawnPeriodMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Rates:agriculture:4",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Difficulty Offset",
+        "Description": "Wild creature level scaling, 0.0-1.0. Default 0.2. Higher = higher-level wilds and tougher treasure mobs.",
+        "FieldName": "DifficultyOffset",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Rates:agriculture:4",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "0.2"
+    },
+    {
+        "DisplayName": "Override Official Difficulty",
+        "Description": "Caps max wild level at value x 30 (e.g. 5.0 = level 150). 0.0 = use default.",
+        "FieldName": "OverrideOfficialDifficulty",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Rates:agriculture:4",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "0.0"
+    },
+    {
+        "DisplayName": "Player Food Drain",
+        "Description": "How fast players get hungry. Lower = slower.",
+        "FieldName": "PlayerCharacterFoodDrainMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Player:person:5",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Player Water Drain",
+        "Description": "How fast players get thirsty. Lower = slower.",
+        "FieldName": "PlayerCharacterWaterDrainMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Player:person:5",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Player Stamina Drain",
+        "Description": "How fast player stamina drains. Lower = slower.",
+        "FieldName": "PlayerCharacterStaminaDrainMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Player:person:5",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Player Damage",
+        "Description": "Damage players deal. 2.0 = double.",
+        "FieldName": "PlayerDamageMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Player:person:5",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Player Resistance",
+        "Description": "Damage players take. LOWER = tougher players (0.5 = half damage taken).",
+        "FieldName": "PlayerResistanceMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Player:person:5",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Creature Food Drain",
+        "Description": "How fast tamed creatures get hungry. Lower = slower (helps taming).",
+        "FieldName": "DinoCharacterFoodDrainMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Creatures:pets:6",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Creature Health Recovery",
+        "Description": "How fast creatures heal. Higher = faster.",
+        "FieldName": "DinoCharacterHealthRecoveryMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Creatures:pets:6",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Creature Damage",
+        "Description": "Damage wild+tamed creatures deal. 2.0 = double.",
+        "FieldName": "DinoDamageMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Creatures:pets:6",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Creature Resistance",
+        "Description": "Damage creatures take. LOWER = tougher creatures.",
+        "FieldName": "DinoResistanceMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Creatures:pets:6",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Structure Damage",
+        "Description": "Damage structures deal (e.g. spikes).",
+        "FieldName": "StructureDamageMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Structures:home:7",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Structure Resistance",
+        "Description": "Damage structures take. LOWER = tougher builds.",
+        "FieldName": "StructureResistanceMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Structures:home:7",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Day Length Scale",
+        "Description": "Length of daytime. Higher = longer days.",
+        "FieldName": "DayTimeSpeedScale",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Time:schedule:8",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Night Length Scale",
+        "Description": "Length of night. Higher = longer nights (set below 1.0 for shorter nights).",
+        "FieldName": "NightTimeSpeedScale",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Time:schedule:8",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "PvE Mode",
+        "Description": "True = PvE (no player-vs-player damage). False = PvP.",
+        "FieldName": "ServerPVE",
+        "InputType": "enum",
+        "Category": "ATLAS",
+        "Subcategory": "World & PvP:public:10",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "False",
+        "EnumValues": {
+            "True": "Enabled",
+            "False": "Disabled"
+        }
+    },
+    {
+        "DisplayName": "Allow Third Person",
+        "Description": "Allow players to use third-person camera.",
+        "FieldName": "AllowThirdPersonPlayer",
+        "InputType": "enum",
+        "Category": "ATLAS",
+        "Subcategory": "World & PvP:public:10",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "True",
+        "EnumValues": {
+            "True": "Enabled",
+            "False": "Disabled"
+        }
+    },
+    {
+        "DisplayName": "Show Player Location on Map",
+        "Description": "Show each player's own position on the map.",
+        "FieldName": "ShowMapPlayerLocation",
+        "InputType": "enum",
+        "Category": "ATLAS",
+        "Subcategory": "World & PvP:public:10",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "True",
+        "EnumValues": {
+            "True": "Enabled",
+            "False": "Disabled"
+        }
+    },
+    {
+        "DisplayName": "Global Voice Chat",
+        "Description": "Voice chat is heard server-wide rather than by proximity.",
+        "FieldName": "GlobalVoiceChat",
+        "InputType": "enum",
+        "Category": "ATLAS",
+        "Subcategory": "World & PvP:public:10",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "False",
+        "EnumValues": {
+            "True": "Enabled",
+            "False": "Disabled"
+        }
+    },
+    {
+        "DisplayName": "Proximity Text Chat",
+        "Description": "Text chat only reaches nearby players.",
+        "FieldName": "ProximityChat",
+        "InputType": "enum",
+        "Category": "ATLAS",
+        "Subcategory": "World & PvP:public:10",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "False",
+        "EnumValues": {
+            "True": "Enabled",
+            "False": "Disabled"
+        }
+    },
+    {
+        "DisplayName": "Allow PvP Gamma",
+        "Description": "Allow players to brighten their screen (gamma) during PvP/night.",
+        "FieldName": "EnablePVPGamma",
+        "InputType": "enum",
+        "Category": "ATLAS",
+        "Subcategory": "World & PvP:public:10",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "False",
+        "EnumValues": {
+            "True": "Enabled",
+            "False": "Disabled"
+        }
+    },
+    {
+        "DisplayName": "Mating Interval",
+        "Description": "Cooldown between breeding. LOWER = breed more often (0.1 = 90% shorter).",
+        "FieldName": "MatingIntervalMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Breeding:favorite:11",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Egg Hatch Speed",
+        "Description": "How fast eggs hatch. Higher = faster.",
+        "FieldName": "EggHatchSpeedMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Breeding:favorite:11",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Baby Mature Speed",
+        "Description": "How fast babies grow up. Higher = faster.",
+        "FieldName": "BabyMatureSpeedMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Breeding:favorite:11",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Baby Food Consumption",
+        "Description": "How fast babies eat. Lower = less feeding.",
+        "FieldName": "BabyFoodConsumptionSpeedMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Breeding:favorite:11",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Imprinting Stat Bonus",
+        "Description": "Strength of the stat bonus from imprinting.",
+        "FieldName": "BabyImprintingStatScaleMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Breeding:favorite:11",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
+    },
+    {
+        "DisplayName": "Crop Growth Speed",
+        "Description": "How fast planted crops grow. Higher = faster.",
+        "FieldName": "CropGrowthSpeedMultiplier",
+        "InputType": "number",
+        "Category": "ATLAS",
+        "Subcategory": "Breeding:favorite:11",
+        "IncludeInCommandLine": false,
+        "Required": false,
+        "DefaultValue": "1.0"
     }
 ]
